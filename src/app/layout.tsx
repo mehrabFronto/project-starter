@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import vazirmatnFont from "@/constants/localFonts";
+import AppProvider from "./providers/AppProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${vazirmatnFont.variable} font-vazirmatn`}>
+        <AppProvider>{children}</AppProvider>
+      </body>
     </html>
   );
 }

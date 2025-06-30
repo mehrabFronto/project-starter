@@ -1,1 +1,95 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark-mode *));
+
+:root {
+  --background: #f6f6f6;
+  --foreground: #030303;
+
+  --primary-50: #f0e6e6;
+  --primary-100: #d1b1b1;
+  --primary-200: #ba8c8c;
+  --primary-300: #9b5757;
+  --primary-400: #873636;
+  --primary-500: #690404;
+  --primary-600: #600404;
+  --primary-700: #4b0303;
+  --primary-800: #3a0202;
+  --primary-900: #2c0202;
+
+  --secondary-50: #fefdfa;
+  --secondary-100: #fcf8ef;
+  --secondary-200: #faf4e7;
+  --secondary-300: #f8efdc;
+  --secondary-400: #f6ecd5;
+  --secondary-500: #f4e7cb;
+  --secondary-600: #ded2b9;
+  --secondary-700: #ada490;
+  --secondary-800: #867f70;
+  --secondary-900: #666155;
+}
+
+.dark-mode {
+  --background: #030303;
+  --foreground: #f6f6f6;
+
+  --primary-50: #f0e6e6;
+  --primary-100: #d1b1b1;
+  --primary-200: #ba8c8c;
+  --primary-300: #9b5757;
+  --primary-400: #873636;
+  --primary-500: #690404;
+  --primary-600: #600404;
+  --primary-700: #4b0303;
+  --primary-800: #3a0202;
+  --primary-900: #2c0202;
+
+  --secondary-50: #fefdfa;
+  --secondary-100: #fcf8ef;
+  --secondary-200: #faf4e7;
+  --secondary-300: #f8efdc;
+  --secondary-400: #f6ecd5;
+  --secondary-500: #f4e7cb;
+  --secondary-600: #ded2b9;
+  --secondary-700: #ada490;
+  --secondary-800: #867f70;
+  --secondary-900: #666155;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
+
+  --color-secondary-50: var(--secondary-50);
+  --color-secondary-100: var(--secondary-100);
+  --color-secondary-200: var(--secondary-200);
+  --color-secondary-300: var(--secondary-300);
+  --color-secondary-400: var(--secondary-400);
+  --color-secondary-500: var(--secondary-500);
+  --color-secondary-600: var(--secondary-600);
+  --color-secondary-700: var(--secondary-700);
+  --color-secondary-800: var(--secondary-800);
+  --color-secondary-900: var(--secondary-900);
+
+  --font-vazirmatn: var(--font-vazirmatn), sans;
+
+  --breakpoint-2xl: 90rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
