@@ -1,0 +1,13 @@
+{
+  "Metadata": {
+    "title": "Title",
+    "description": "Description"
+  },
+  "HomePage": {
+    "buttonText": "Button",
+    "heading": "This is a test text",
+    "sidebar": "Sidebar",
+    "topBar": "Top bar",
+    "content": "Content"
+  }
+}

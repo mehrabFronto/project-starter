@@ -1,0 +1,14 @@
+{
+  "Metadata": {
+    "title": "عنوان سایت",
+    "description": "توضحات سایت"
+  },
+
+  "HomePage": {
+    "buttonText": "دکمه",
+    "heading": "این یک متن تستی است",
+    "sidebar": "نوار کناری",
+    "topBar": "نوار بالایی",
+    "content": "محتوا"
+  }
+}
