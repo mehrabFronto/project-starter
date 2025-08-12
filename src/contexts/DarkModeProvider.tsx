@@ -1,23 +1,34 @@
 "use client";
 
-import useLocalStorage from "@/hooks/useLocalStorage";
+import useLocalStorageState from "@/hooks/useLocalStorageState";
 import { createContext, useContext, useEffect } from "react";
 
-type DarkModeContextType = { isDarkMode: string; toggleDarkMode: () => void };
+// Type definition for Dark Mode Context
+type DarkModeContextType = { isDarkMode: boolean; toggleDarkMode: () => void };
 
+// Create the context with a default value
 const DarkModeContext = createContext<DarkModeContextType>({
-  isDarkMode: "",
+  isDarkMode: false,
   toggleDarkMode: () => {},
 });
 
+/**
+ * DarkModeProvider Component
+ * - Provides dark mode state and toggle function to the app.
+ * - Persists the user's preference in localStorage.
+ * - Automatically applies the correct class (light-mode or dark-mode) to <html>.
+ */
 const DarkModeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isDarkMode, setIsDarkMode] = useLocalStorage(
+  // Store dark mode state in localStorage, initial value is based on system preference
+  const [isDarkMode, setIsDarkMode] = useLocalStorageState<boolean>(
     "isDarkMode",
     window.matchMedia("(prefers-color-scheme: dark)").matches
   );
 
-  const toggleDarkMode = () => setIsDarkMode((prev: string) => !prev);
+  // Toggle function to switch between dark and light mode
+  const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
 
+  // Apply the correct theme class to <html> whenever isDarkMode changes
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark-mode");
@@ -37,6 +48,11 @@ const DarkModeProvider = ({ children }: { children: React.ReactNode }) => {
 
 export default DarkModeProvider;
 
+/**
+ * Custom hook to use Dark Mode Context
+ * - Must be used inside DarkModeProvider.
+ * - Provides access to isDarkMode state and toggleDarkMode function.
+ */
 export function useDarkMode() {
   const context = useContext(DarkModeContext);
 
